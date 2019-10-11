@@ -14,7 +14,7 @@ java -cp target/classes/ nyasocom.App
 [今後の変更]
 
 ```markdown
-・秋水が更新されたら、こちらのAppファイルも取り込みます。
+・秋水が更新されたら、こちらのAppクラスも変更を取り込みます。
 ```
 
 合掌
