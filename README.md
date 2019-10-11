@@ -2,12 +2,11 @@
 
 秋水をmaven化。
 
-*ビルドしやすく、テストも走る理想的な環境へ*
-
-RUN
-
-```java
+[ RUN ]
+```markdown
 mvn compile
 
 java -cp target/classes/ nyasocom.App
 ```
+
+*ビルドしやすく、テストも走る理想的な環境へ*
