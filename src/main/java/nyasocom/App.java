@@ -1,8 +1,8 @@
 package nyasocom;
 
 /**
- * AkisuiMvn
- *
+ * Akisui_Mvn
+ * create by Takayuki Kamiyama(takkii).
  */
 
 import java.io.*;
@@ -15,7 +15,7 @@ import java.util.concurrent.locks.*;
 class MyHandler implements Thread.UncaughtExceptionHandler {
 
     @Override
-    public void uncaughtException(Thread t, Throwable ex) {
+    public void uncaughtException(final Thread t, final Throwable ex) {
         System.out.println("例外発生 : " + t.getId());
         ex.printStackTrace();
     }
@@ -23,9 +23,9 @@ class MyHandler implements Thread.UncaughtExceptionHandler {
 
 public class App extends Thread {
 
-    @SuppressWarnings({"varargs"})
+    @SuppressWarnings({ "varargs" })
 
-    public static void main(String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException {
 
         ReentrantReadWriteLock locks;
         locks = new ReentrantReadWriteLock();
@@ -36,7 +36,7 @@ public class App extends Thread {
         locker = locks.writeLock();
 
         // 非同期処理を使う
-        Thread thread = new Thread();
+        final Thread thread = new Thread();
         thread.setUncaughtExceptionHandler(new MyHandler());
         thread.setDaemon(true);
         thread.start();
@@ -49,10 +49,10 @@ public class App extends Thread {
         System.out.println("---------------------------------------------------------------");
         System.out.println();
         System.out.print("> ");
-        BufferedReader infile = new BufferedReader(new InputStreamReader(System.in));
-        File file = new File(infile.readLine());
+        final BufferedReader infile = new BufferedReader(new InputStreamReader(System.in));
+        final File file = new File(infile.readLine());
         System.out.println();
-        boolean canRead = file.canRead();
+        final boolean canRead = file.canRead();
         System.out.println("---------------------------------------------------");
         System.out.println();
         System.out.println("読み込み可・不可を判定 : " + canRead);
@@ -82,14 +82,14 @@ public class App extends Thread {
             String env;
 
             // readerにutf-8をセット
-            BufferedReader reader = new BufferedReader(
+            final BufferedReader reader = new BufferedReader(
                     new InputStreamReader((System.in), StandardCharsets.UTF_8));
 
             env = reader.readLine();
 
             // ファイルを読み込む
-            FileReader filer = new FileReader(file);
-            BufferedReader buffer = new BufferedReader(filer);
+            final FileReader filer = new FileReader(file);
+            final BufferedReader buffer = new BufferedReader(filer);
 
             String str;
             int num = 0;
@@ -100,20 +100,19 @@ public class App extends Thread {
                 num++;
 
                 // 検索する文字列 or 正規表現パターン
-                Pattern pattern = Pattern.compile(env);
-                Matcher matcher = pattern.matcher(str);
+                final Pattern pattern = Pattern.compile(env);
+                final Matcher matcher = pattern.matcher(str);
 
                 while (matcher.find()) {
                     System.out.println(num + " " + str);
                 }
             }
 
-
             buffer.close();
             filer.close();
             thread.join();
 
-        } catch (Exception e) {
+        } catch (final Exception e) {
             //e.printStackTrace();
             System.out.println("ファイルを正常に読み込めませんでした。");
             thread.interrupt();
