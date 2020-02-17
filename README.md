@@ -7,6 +7,8 @@
 ```markdown
 git clone https://github.com/takkii/Akisui_mvn.git
 
+
+
 mvn compile
 
 java -cp target/classes/ nyasocom.App
