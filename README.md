@@ -7,7 +7,7 @@
 ```markdown
 git clone https://github.com/takkii/Akisui_mvn.git
 
-
+cd Akisui_mvn
 
 mvn compile
 
