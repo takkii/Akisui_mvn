@@ -1,16 +1,12 @@
 package nyasocom;
 
-/**
- * Akisui_Mvn
- * create by Takayuki Kamiyama(takkii).
- */
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.concurrent.locks.*;
 
 class MyHandler implements Thread.UncaughtExceptionHandler {
 
