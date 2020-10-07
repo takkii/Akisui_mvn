@@ -32,7 +32,7 @@ public class App extends Thread {
         locker = locks.writeLock();
 
         // 非同期処理を使う
-        final Thread thread = new Thread();
+        final App thread = new App();
         thread.setUncaughtExceptionHandler(new MyHandler());
         thread.setDaemon(true);
         thread.start();
